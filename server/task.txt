@@ -1,0 +1,6 @@
+-> Create Table from CSV file -- Done
+-> Sort the data according to Date in reverse Order -- Done 
+-> Add pagination where limit = 30 -- Done 
+-> Adding new record with current Date and opening and closing -- Done 
+-> Adding new record will be updated realtime 
+-> Use Socket.io to use realtime updation.

@@ -1,0 +1,48 @@
+<div class="container">
+  <div clss="nextprev">
+    <button (click)="previous()" class="pageChangeButton previous">Back</button>
+    <button (click)="next()" class="pageChangeButton next">Next</button>
+  </div>
+
+  <button (click)="toggleStock()" class="pageChangeButton addButton">
+    Add a Stock
+  </button>
+  <div *ngIf="isAdding">
+    <br />
+    <p *ngIf="errorInAdd" class="errorClass">
+      Error Occurs Addition of Stocks!!!
+    </p>
+    <br />
+    <form #addStockForm="ngForm" (ngSubmit)="submitForm(addStockForm.value)">
+      <label for="open">Open</label>
+      <input
+        type="number"
+        name="open"
+        ngModel
+        placeholder="Add Opening Value"
+      />
+      <label for="close">Close</label>
+      <input
+        type="number"
+        name="close"
+        ngModel
+        placeholder="Add Closing Value"
+      />
+      <button class="submitButton">Add</button>
+    </form>
+  </div>
+
+  <h1>List of Stocks</h1>
+  <table id="stockTable">
+    <tr>
+      <th>Date</th>
+      <th>Open</th>
+      <th>Close</th>
+    </tr>
+    <tr *ngFor="let stock of result">
+      <td>{{ stock.date | date: "shortDate" }}</td>
+      <td>{{ stock.open }}</td>
+      <td>{{ stock.close }}</td>
+    </tr>
+  </table>
+</div>
